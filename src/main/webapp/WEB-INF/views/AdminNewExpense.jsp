@@ -1,0 +1,104 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Add Account</title>
+    
+    <jsp:include page="AdminCss.jsp"></jsp:include>
+</head>
+<body>
+    <jsp:include page="AdminHeader.jsp"></jsp:include>
+    <jsp:include page="AdminSideBar.jsp"></jsp:include>
+
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Expense</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+                    <li class="breadcrumb-item active">Add Expense</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <section class="section dashboard">
+            <div class="row" style="min-height: 500px;">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add New Expense</h5>
+                            
+                            <form action="adminsaveexpense" method="post">
+                                <div class="mb-3 col-md-6">
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="title" name="title" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <input type="text" class="form-control" id="amount" name="amount" required>
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="TranscationDate" class="form-label">TranscationDate</label>
+                                    <input type="date" class="form-control" id="transcationDate" name="transcationDate" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                                </div>
+                                
+                                	<div class = "mb-3">
+                                	<label for="accountId" class="form-label">Select Account</label>
+                                        <select  class="form-select" id="accountId" name="accountId" required>
+									        <option   selected >  Select Account </option>
+									        <c:forEach items = "${allAccount}" var = "account">
+									        	<option value="${ account.accountId}">${account.title}</option>        
+									        </c:forEach>
+									        </select><br>
+                                	</div>
+                                	 <div class = "mb-3">
+                                	<label for="categoryId" class="form-label">Select Category</label>
+                                        <select  class="form-select" id="categoryId" name="categoryId" required>
+									        <option  selected >  Select Category </option>
+									        <c:forEach items = "${allCategory}" var = "category">
+									        	<option value="${ category.categoryId}">${category.categoryName}</option>        
+									        </c:forEach>
+									        </select><br>
+                                	</div>
+                                	 <div class = "mb-3">
+                                	<label for="subCategoryId" class="form-label">Select SubCategory</label>
+                                        <select  class="form-select" id="subCategoryId" name="subCategoryId" required>
+									        <option   selected>  Select SubCategory </option>
+									        <c:forEach items = "${allSubCategory}" var = "subcategory">
+									        	<option value="${ subcategory.subCategoryId}">${subcategory.title}</option>        
+									        </c:forEach>
+									        </select><br>
+                                	</div>
+                                	 <div class = "mb-3">
+                                	<label for="vendorId" class="form-label">Select Vendor</label>
+                                        <select  class="form-select" id="vendorId" name="vendorId" required>
+									        <option   selected>  Select Vendor </option>
+									        <c:forEach items = "${allVendor}" var = "vendor">
+									        	<option value="${ vendor.vendorId}">${vendor.title}   </option>        
+									        </c:forEach>
+									        </select><br>
+                                	</div>
+                                <button type="submit" class="btn btn-primary">Add Expense</button> 
+                                <a href="adminlistexpense" class="btn btn-secondary">List Expense</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <jsp:include page="AdminFooter.jsp"></jsp:include>
+    <jsp:include page="AdminJs.jsp"></jsp:include>
+</body>
+</html>
+
+
