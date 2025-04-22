@@ -1,6 +1,6 @@
 <footer id="footer" class="footer mt-auto">
     <div class="copyright">
-      © Copyright <strong><span>ExpenseManager</span></strong>. All Rights Reserved
+      © Copyright <strong><span>ExpenseTracker</span></strong>. All Rights Reserved
     </div>
    
   </footer>

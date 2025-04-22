@@ -32,8 +32,7 @@ public class SessionController {
 	
 	@Autowired
 	MailService mailService;
-	
-	
+		
 	@Autowired
 	UserRepository repoUser;
 	
@@ -41,12 +40,14 @@ public class SessionController {
 	PasswordEncoder encoder;
 	
 	@Autowired
-   Cloudinary cloudinary;
+    Cloudinary cloudinary;
+	
 	@Autowired
 	AccountRepository accountRepository;
 	
 	@Autowired
 	ExpenseRepository expenseRepository;
+	
 	@Autowired
 	IncomeRepository incomeRepository;
 	
